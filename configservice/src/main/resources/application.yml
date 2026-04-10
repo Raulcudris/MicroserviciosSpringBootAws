@@ -4,16 +4,14 @@ server:
 spring:
   application:
     name: configservice
-
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/Raulcudris/microservices-fargate-demo.git
-          default-label: main
+          uri: https://github.com/Raulcudris/MicroserviciosSpringBootAws.git
+          default-label: dev
           search-paths: config-data
           clone-on-start: true
-
 
 management:
   endpoints:
