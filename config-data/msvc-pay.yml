@@ -1,0 +1,33 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: msvc-pay
+
+  datasource:
+    url: jdbc:mysql://
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      initializationFailTimeout: 0
+      connectionTimeout: 30000
+      maximumPoolSize: 10
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

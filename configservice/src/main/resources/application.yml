@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: configservice
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Raulcudris/microservices-fargate-demo.git
+          default-label: main
+          search-paths: config-data
+          clone-on-start: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,30 @@
+# ---- Build Stage ----
+FROM eclipse-temurin:11-jdk-jammy AS build
+WORKDIR /app
+
+# Copia archivos de Gradle (para cache)
+COPY gradlew .
+COPY gradle ./gradle
+COPY build.gradle* settings.gradle* gradle.properties* ./
+
+# Permisos para ejecutar wrapper
+RUN chmod +x gradlew
+
+# Copia el código
+COPY src ./src
+
+# Compila (Spring Boot)
+RUN ./gradlew --no-daemon clean bootJar -x test
+
+# ---- Run Stage ----
+FROM eclipse-temurin:11-jre-jammy
+WORKDIR /app
+
+# El jar de Gradle normalmente queda aquí
+COPY --from=build /app/build/libs/*.jar app.jar
+
+# ✅ Recomendado para Fargate
+ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75.0 -XX:InitialRAMPercentage=25.0 -Djava.security.egd=file:/dev/./urandom"
+
+EXPOSE 8080
+ENTRYPOINT ["sh","-c","java $JAVA_TOOL_OPTIONS -jar /app/app.jar"]
