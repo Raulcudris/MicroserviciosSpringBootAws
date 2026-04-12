@@ -1,13 +1,15 @@
 spring:
   application:
     name: msvc-products
+
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081
+      uri: http://msvc-config.inventario-ms.local:8081
       fail-fast: false
       retry:
         max-attempts: 30
         initial-interval: 2000
         multiplier: 1.5
         max-interval: 15000
+        

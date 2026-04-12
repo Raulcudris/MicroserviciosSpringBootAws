@@ -1,15 +1,13 @@
-server:
-  port: 8081
-
 spring:
   application:
-    name: configservice
+    name: msvc-config
+
   cloud:
     config:
       server:
         git:
           uri: https://github.com/Raulcudris/MicroserviciosSpringBootAws.git
-          default-label: dev
+          default-label: deploy
           search-paths: config-data
           clone-on-start: true
 

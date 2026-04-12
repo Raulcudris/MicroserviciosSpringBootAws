@@ -9,8 +9,11 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+    service-url:
+      defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
     prefer-ip-address: true
+    hostname: msvc-eureka
 
 management:
   endpoints:

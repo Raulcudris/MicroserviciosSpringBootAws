@@ -1,10 +1,11 @@
 spring:
   application:
     name: msvc-orders
+
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081
+      uri: http://msvc-config.inventario-ms.local:8081
       fail-fast: false
       retry:
         max-attempts: 30
