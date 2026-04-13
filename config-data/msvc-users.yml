@@ -30,9 +30,10 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://msvc-eureka.inventario-ms.local:8761/eureka
+      defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
     prefer-ip-address: true
+    hostname: msvc-users
 
 management:
   endpoints:
