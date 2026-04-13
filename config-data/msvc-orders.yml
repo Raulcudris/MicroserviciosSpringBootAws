@@ -30,7 +30,7 @@ eureka:
       defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
     prefer-ip-address: false
-    hostname: msvc-pay.inventario-ms.local
+    hostname: msvc-orders.inventario-ms.local
     non-secure-port: 8002
     instance-id: ${spring.application.name}:${server.port}
 

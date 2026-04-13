@@ -136,6 +136,22 @@ locals {
       {
         name  = "DB_HOST"
         value = aws_db_instance.mysql.address
+      },
+      {
+        name  = "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
+        value = "http://msvc-eureka.inventario-ms.local:8761/eureka/"
+      },
+      {
+        name  = "EUREKA_INSTANCE_PREFER_IP_ADDRESS"
+        value = "false"
+      },
+      {
+        name  = "EUREKA_INSTANCE_HOSTNAME"
+        value = "msvc-users.inventario-ms.local"
+      },
+      {
+        name  = "EUREKA_INSTANCE_NON_SECURE_PORT"
+        value = "8004"
       }
     ]
   }
