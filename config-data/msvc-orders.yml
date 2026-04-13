@@ -6,7 +6,7 @@ spring:
     name: msvc-orders
 
   datasource:
-    url: jdbc:mysql://<RDS_ENDPOINT>:3306/ecommerce_myshop
+    url: jdbc:mysql://${DB_HOST}:3306/ecommerce_myshop
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,11 +15,30 @@ spring:
       connectionTimeout: 30000
       maximumPoolSize: 10
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://msvc-eureka.inventario-ms.local:8761/eureka
+      defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
+    hostname: msvc-pay.inventario-ms.local
+    non-secure-port: 8002
+    instance-id: ${spring.application.name}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

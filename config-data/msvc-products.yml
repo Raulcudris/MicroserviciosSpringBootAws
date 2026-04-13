@@ -27,9 +27,12 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://msvc-eureka.inventario-ms.local:8761/eureka
+      defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
+    hostname: msvc-products.inventario-ms.local
+    non-secure-port: 8001
+    instance-id: ${spring.application.name}:${server.port}
 
 management:
   endpoints:
