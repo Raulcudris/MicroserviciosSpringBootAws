@@ -32,8 +32,10 @@ eureka:
     service-url:
       defaultZone: http://msvc-eureka.inventario-ms.local:8761/eureka/
   instance:
-    prefer-ip-address: true
-    hostname: msvc-users
+    prefer-ip-address: false
+    hostname: msvc-users.inventario-ms.local
+    non-secure-port: 8004
+    instance-id: ${spring.application.name}:${server.port}
 
 management:
   endpoints:
