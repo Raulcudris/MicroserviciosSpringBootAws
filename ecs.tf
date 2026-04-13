@@ -61,6 +61,18 @@ locals {
       {
         name  = "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
         value = "http://msvc-eureka.inventario-ms.local:8761/eureka/"
+      },
+      {
+        name  = "EUREKA_INSTANCE_PREFER_IP_ADDRESS"
+        value = "false"
+      },
+      {
+        name  = "EUREKA_INSTANCE_HOSTNAME"
+        value = "msvc-gateway.inventario-ms.local"
+      },
+      {
+        name  = "EUREKA_INSTANCE_NON_SECURE_PORT"
+        value = "8080"
       }
     ]
     "msvc-orders" = [
@@ -79,9 +91,32 @@ locals {
       {
         name  = "DB_HOST"
         value = aws_db_instance.mysql.address
+      },
+      {
+        name  = "DB_PORT"
+        value = "3306"
+      },
+      {
+        name  = "SPRING_DATASOURCE_URL"
+        value = "jdbc:mysql://${aws_db_instance.mysql.address}:3306/${var.db_name}"
+      },
+      {
+        name  = "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
+        value = "http://msvc-eureka.inventario-ms.local:8761/eureka/"
+      },
+      {
+        name  = "EUREKA_INSTANCE_PREFER_IP_ADDRESS"
+        value = "false"
+      },
+      {
+        name  = "EUREKA_INSTANCE_HOSTNAME"
+        value = "msvc-orders.inventario-ms.local"
+      },
+      {
+        name  = "EUREKA_INSTANCE_NON_SECURE_PORT"
+        value = "8002"
       }
     ]
-
     "msvc-pay" = [
       {
         name  = "SPRING_PROFILES_ACTIVE"
@@ -98,9 +133,32 @@ locals {
       {
         name  = "DB_HOST"
         value = aws_db_instance.mysql.address
+      },
+      {
+        name  = "DB_PORT"
+        value = "3306"
+      },
+      {
+        name  = "SPRING_DATASOURCE_URL"
+        value = "jdbc:mysql://${aws_db_instance.mysql.address}:3306/${var.db_name}"
+      },
+      {
+        name  = "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
+        value = "http://msvc-eureka.inventario-ms.local:8761/eureka/"
+      },
+      {
+        name  = "EUREKA_INSTANCE_PREFER_IP_ADDRESS"
+        value = "false"
+      },
+      {
+        name  = "EUREKA_INSTANCE_HOSTNAME"
+        value = "msvc-pay.inventario-ms.local"
+      },
+      {
+        name  = "EUREKA_INSTANCE_NON_SECURE_PORT"
+        value = "8003"
       }
     ]
-
     "msvc-products" = [
       {
         name  = "SPRING_PROFILES_ACTIVE"
@@ -117,9 +175,32 @@ locals {
       {
         name  = "DB_HOST"
         value = aws_db_instance.mysql.address
+      },
+      {
+        name  = "DB_PORT"
+        value = "3306"
+      },
+      {
+        name  = "SPRING_DATASOURCE_URL"
+        value = "jdbc:mysql://${aws_db_instance.mysql.address}:3306/${var.db_name}"
+      },
+      {
+        name  = "EUREKA_CLIENT_SERVICEURL_DEFAULTZONE"
+        value = "http://msvc-eureka.inventario-ms.local:8761/eureka/"
+      },
+      {
+        name  = "EUREKA_INSTANCE_PREFER_IP_ADDRESS"
+        value = "false"
+      },
+      {
+        name  = "EUREKA_INSTANCE_HOSTNAME"
+        value = "msvc-products.inventario-ms.local"
+      },
+      {
+        name  = "EUREKA_INSTANCE_NON_SECURE_PORT"
+        value = "8001"
       }
     ]
-
     "msvc-users" = [
       {
         name  = "SPRING_PROFILES_ACTIVE"

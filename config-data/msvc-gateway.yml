@@ -24,7 +24,7 @@ spring:
         - id: payments-services
           uri: lb://msvc-pay
           predicates:
-            - Path=/pay/**
+            - Path=/payments/**
 
         - id: users-services
           uri: lb://msvc-users
